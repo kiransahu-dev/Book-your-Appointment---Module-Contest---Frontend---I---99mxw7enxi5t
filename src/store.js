@@ -7,12 +7,15 @@ const initialState = {
 function appointmentReducer(state = initialState, action) {
   switch (action.type) {
     case 'ADD_APPOINTMENT':
-      return {};
+      return {
+        ...state,
+        appointments: [...state.appoinments, action.payload],
+      };
     default:
       return state;
   }
 }
 
-const store = createStore();
+const store = createStore(appointmentReducer);
 
 export default store;
