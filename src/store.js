@@ -9,7 +9,7 @@ function appointmentReducer(state = initialState, action) {
     case 'ADD_APPOINTMENT':
       return {
         ...state,
-        appointments: [...state.appoinments, action.payload],
+        appointments: [...state.appointments, action.payload]
       };
     default:
       return state;
