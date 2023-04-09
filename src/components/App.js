@@ -7,13 +7,12 @@ const App = () => {
   const [name, setName] = useState('');
   const [time, setTime] = useState('');
   const [description, setDescription] = useState('');
-
   const dispatch = useDispatch();
-  const appointments = useSelector((state) => state.appointments);
+  const appointments = useSelector(state => state.appointments);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addAppointment( name, time, description ));
+    dispatch(addAppointment(name, time, description));
     setName('');
     setTime('');
     setDescription('');
@@ -23,13 +22,13 @@ const App = () => {
     <div id="main">
       <form onSubmit={handleSubmit}>
         <label>Name:</label>
-        <input type="text" className="name-input" value={name} onChange={(e) => setName(e.target.value)}/>
+        <input type="text" className="name-input" value={name} onChange = {(e) => setName(e.target.value)}/>
         <br />
         <label>Time:</label>
-        <input type="text" className="time-input" value={time} onChange={(e) => setTime(e.target.value)}/>
+        <input type="text" className="time-input" value={time} onChange = {(e) => setTime(e.target.value)}/>
         <br />
         <label>Description:</label>
-        <textarea className="description-input" value={description} onChange={(e) => setDescription(e.target.value)}/>
+        <textarea className="description-input" value={description} onChange = {(e) => setDescription(e.target.value)}/>
         <br />
         <button type="submit">Add Appointment</button>
       </form>
@@ -43,7 +42,8 @@ const App = () => {
           </tr>
         </thead>
         <tbody>
-          {appointments.map((appointment, index) => (
+            {/* Appointment HTML */}
+            {appointments.map((appointment, index) => (
             <tr key={index}>
               <td>{appointment.name}</td>
               <td>{appointment.time}</td>
@@ -53,8 +53,8 @@ const App = () => {
         </tbody>
       </table>
     </div>
-  );
-};
+  )
+}
 
 
 export default App;
